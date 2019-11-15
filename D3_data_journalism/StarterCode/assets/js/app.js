@@ -27,31 +27,39 @@ var chartGroup = svg.append("g")
         `translate(${chartMargin.left}, ${chartMargin.top})`);
 
 
+// d3.csv("/assets/data/data.csv").then(function (data) {
+//     console.log(data);
+// });
+
 // Read CSV File
-var csv_data = d3.csv("assets/data/data.csv", function (error, fileData) {
+var csv_data = d3.csv("/assets/data/data.csv").then(function (fileData) {
     //Catch any errors from file
-    if (error) throw error;
+    // if (error) throw error;
 
     //Data Parsing
     fileData.forEach(function (data) {
-        d.id = +d.id;
-        d.poverty = +d.poverty;
-        d.povertyMoe = +d.povertyMoe;
-        d.age = +d.age;
-        d.ageMoe = +ageMoe;
-        d.income = +d.income;
-        d.incomeMoe = +d.incomeMoe;
-        d.healthcare = +d.healthcare;
-        d.healthcareLow = +d.healthcareLow;
-        d.healthcareHigh = +d.healthcareHigh;
-        d.obesity = +d.obesity;
-        d.obesityLow = + d.obesityLow;
-        d.obesityHigh = +d.obesityHigh;
-        d.smokes = + d.smokes;
-        d.smokesLow = +d.smokesLow;
-        d.smokesHigh = +d.smokesHigh;
 
+        data.id = +data.id;
+        data.poverty = +data.poverty;
+        data.povertyMoe = +data.povertyMoe;
+        data.age = +data.age;
+        data.ageMoe = +data.ageMoe;
+        data.income = +data.income;
+        data.incomeMoe = +data.incomeMoe;
+        data.healthcare = +data.healthcare;
+        data.healthcareLow = +data.healthcareLow;
+        data.healthcareHigh = +data.healthcareHigh;
+        data.obesity = +data.obesity;
+        data.obesityLow = +data.obesityLow;
+        data.obesityHigh = +data.obesityHigh;
+        data.smokes = +data.smokes;
+        data.smokesLow = +data.smokesLow;
+        data.smokesHigh = +data.smokesHigh;
+
+        console.log(data);
     });
+
+
     // xLinearScale function
     var xLinearScale = xScale(fileData, chosenXAxis)
 
