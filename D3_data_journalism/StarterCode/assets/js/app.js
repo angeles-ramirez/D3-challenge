@@ -31,10 +31,10 @@ var chartGroup = svg.append("g")
 //     console.log(data);
 // });
 
-// Read CSV File
-var csv_data = d3.csv("/assets/data/data.csv").then(function (fileData) {
+// // Read CSV File
+var csv_data = d3.csv("assets/data/data.csv").then(function (fileData) {
     //Catch any errors from file
-    // if (error) throw error;
+    if (error) throw error;
 
     //Data Parsing
     fileData.forEach(function (data) {
@@ -118,7 +118,7 @@ var csv_data = d3.csv("/assets/data/data.csv").then(function (fileData) {
         .attr("x", 0 - (height / 2))
         .attr("dy", "1em")
         .classed("axis-text", true)
-        .text("Healthcare xyz"); // ------------------------------------------- Edit
+        .text("Healthcare xyz");
 
     // updateToolTip function above csv import
     var circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
@@ -165,11 +165,11 @@ var csv_data = d3.csv("/assets/data/data.csv").then(function (fileData) {
 });
 
 // csv_data.catch(function (error) {
-//console.error(error);
+//     console.error(error);
 // });
 
 
-// --------------------------------------------------------------------------- //
+// // --------------------------------------------------------------------------- //
 
 // // Horizontal band scale with 10% padding
 // var xBandScale = d3.scaleBand()
